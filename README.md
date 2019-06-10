@@ -28,3 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Init Json Server
 Run `json-server --watch db.json` inside project path.
+
+## License
+Copyright (c) Luiz Guilherme Stephanes Costa. All rights reserved.
+Licensed under the [MIT](LICENSE) license.
