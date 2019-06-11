@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Vaga } from '../models/vaga.model';
 
 @Injectable()
-export class VagaService {
+export class MyParkService {
 
 	private apiUrl = '';
 
