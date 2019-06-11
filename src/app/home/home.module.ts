@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { MainNavModule } from '../main-nav/main-nav.module';
+import { MainNavModule } from '../shared/components/main-nav/main-nav.module';
 
 @NgModule({
 
