@@ -15,6 +15,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Init Json Server
 Run `json-server --watch db.json` inside project path.
 
+> [!IMPORTANT]
+> You need to install the package json server, run `npm install -g json-server` to install de package.
+
 ## License
 Copyright (c) Luiz Guilherme Stephanes Costa. All rights reserved.
 Licensed under the [MIT](LICENSE) license.
