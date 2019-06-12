@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MyParkService } from '../shared/services/my-park.service';
+import { Vaga } from '../shared/models/vaga.model';
 
 @Component({
 	selector: 'app-home',
@@ -7,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-	constructor() { }
+	vagas: Vaga[];
+
+	constructor(private service: MyParkService) { }
 
 	ngOnInit() {
-		console.log('entrou');
+		this.service.list().subscribe(console.log);
 	}
 
 }

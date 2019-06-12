@@ -1,6 +1,6 @@
 import { Carro } from './carro.model';
 
-export class Vaga {
+export interface Vaga {
 	id: number;
 	bloco: string;
 	numeroVaga: string;
