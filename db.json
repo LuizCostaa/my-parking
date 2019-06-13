@@ -1,88 +1,26 @@
 {
-  "vagas": [
-    {
-      "id": 1,
-      "bloco": "A",
-      "numeroVaga": 1,
-      "veiculo": {}
-    },
-    {
-      "id": 2,
-      "bloco": "A",
-      "numeroVaga": 2,
-      "veiculo": {}
-    },
-    {
-      "id": 3,
-      "bloco": "A",
-      "numeroVaga": 3,
-      "veiculo": {}
-    },
-    {
-      "id": 4,
-      "bloco": "B",
-      "numeroVaga": 1,
-      "veiculo": {}
-    },
-    {
-      "id": 5,
-      "bloco": "B",
-      "numeroVaga": 2,
-      "veiculo": {}
-    },
-    {
-      "id": 6,
-      "bloco": "B",
-      "numeroVaga": 3,
-      "veiculo": {}
-    },
-    {
-      "id": 7,
-      "bloco": "C",
-      "numeroVaga": 1,
-      "veiculo": {}
-    },
-    {
-      "id": 8,
-      "bloco": "C",
-      "numeroVaga": 2,
-      "veiculo": {}
-    },
-    {
-      "id": 9,
-      "bloco": "C",
-      "numeroVaga": 3,
-      "veiculo": {}
-    },
-    {
-      "id": 10,
-      "bloco": "D",
-      "numeroVaga": 1,
-      "veiculo": {}
-    },
-    {
-      "id": 11,
-      "bloco": "D",
-      "numeroVaga": 2,
-      "veiculo": {}
-    },
-    {
-      "id": 12,
-      "bloco": "D",
-      "numeroVaga": 3,
-      "veiculo": {}
-    },
-    {
-      "bloco": "D",
-      "numeroVaga": 4,
-      "veiculo": {},
-      "id": 13
-    },
-    {
-      "bloco": "D",
-      "numeroVaga": 4,
-      "veiculo": {},
-      "id": 14
-    }
-  ]
+	"vagas": [
+		{
+			"id": 1,
+			"bloco": "A",
+			"numeroVaga": 1,
+			"veiculo": {
+				"placa": "wxyz987",
+				"modelo": "CG 150",
+				"nomeDono": "Alisson",
+				"tipoVeiculo": 2
+			}
+		},
+		{
+			"id": 2,
+			"bloco": "A",
+			"numeroVaga": 2,
+			"veiculo": {
+				"placa": "abcd1234",
+				"modelo": "pegeout 207",
+				"nomeDono": "Luiz",
+				"tipoVeiculo": 1
+			}
+		}
+	]
 }

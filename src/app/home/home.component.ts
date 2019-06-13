@@ -9,7 +9,7 @@ import { Vaga } from '../shared/models/vaga.model';
 })
 export class HomeComponent implements OnInit {
 
-	vagas: Vaga[];
+	cursos: Vaga[];
 
 	constructor(private service: MyParkService) { }
 
