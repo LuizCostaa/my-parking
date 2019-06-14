@@ -2,7 +2,6 @@
 	"vagas": [
 		{
 			"id": 1,
-			"bloco": "A",
 			"numeroVaga": 1,
 			"veiculo": {
 				"placa": "wxyz987",
@@ -13,7 +12,6 @@
 		},
 		{
 			"id": 2,
-			"bloco": "A",
 			"numeroVaga": 2,
 			"veiculo": {
 				"placa": "abcd1234",

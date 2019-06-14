@@ -1,3 +1,17 @@
 <app-main-nav>
-	<p>TESTE</p>
+	<div class="main-div">
+		<div *ngFor="let xablau of xablaus">
+			<mat-card class="example-card">
+				<mat-card-header>
+					<mat-card-title>Shiba Inu</mat-card-title>
+					<mat-card-subtitle>Dog Breed</mat-card-subtitle>
+				</mat-card-header>
+				<div class="background-style"></div>
+				<mat-card-actions>
+					<button mat-button>LIKE</button>
+					<button mat-button>SHARE</button>
+				</mat-card-actions>
+			</mat-card>
+		</div>
+	</div>
 </app-main-nav>

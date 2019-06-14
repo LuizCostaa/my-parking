@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
@@ -15,7 +16,8 @@ import { MainNavModule } from '../shared/components/main-nav/main-nav.module';
 		ReactiveFormsModule,
 		HttpClientModule,
 		HomeRoutingModule,
-		MainNavModule
+		MainNavModule,
+		MatCardModule
 	],
 	declarations: [
 		HomeComponent,

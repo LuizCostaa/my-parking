@@ -10,6 +10,7 @@ import { Vaga } from '../shared/models/vaga.model';
 export class HomeComponent implements OnInit {
 
 	cursos: Vaga[];
+	xablaus: any = [{ xablau: '1'}, {xablau: '2'}, {xablau: '3'}, {xablau: '3'}, {xablau: '3'}, {xablau: '3'}];
 
 	constructor(private service: MyParkService) { }
 
