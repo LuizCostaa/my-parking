@@ -5,7 +5,8 @@ import { Vaga } from '../shared/models/vaga.model';
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.component.html',
-	styleUrls: ['./home.component.scss']
+	styleUrls: ['./home.component.scss'],
+	preserveWhitespaces: true
 })
 export class HomeComponent implements OnInit {
 

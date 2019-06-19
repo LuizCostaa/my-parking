@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
@@ -17,7 +18,8 @@ import { MainNavModule } from '../shared/components/main-nav/main-nav.module';
 		HttpClientModule,
 		HomeRoutingModule,
 		MainNavModule,
-		MatCardModule
+		MatCardModule,
+		MatButtonModule
 	],
 	declarations: [
 		HomeComponent,
