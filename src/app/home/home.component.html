@@ -1,13 +1,23 @@
 <app-main-nav></app-main-nav>
 <div class="main-div">
-	<div *ngFor="let xablau of xablaus">
-		<mat-card class="example-card">
+	<div *ngFor="let vaga of vagas">
+		<mat-card class="main-card">
 			<mat-card-header>
-				<mat-card-title>Shiba Inu</mat-card-title>
+				<div *ngIf="vaga.estaOcupado === true" class="background-ocuped"></div>
+				<div *ngIf="vaga.estaOcupado === false" class="background-empty"></div>
+				<mat-card-title>Vaga: {{vaga.id}}</mat-card-title>
 				<mat-card-subtitle>Dog Breed</mat-card-subtitle>
 			</mat-card-header>
-			<div class="background-style"></div>
-			<button class="button-style" mat-raised-button color="primary">Editar</button>
+
+			<div *ngIf="vaga.estaOcupado === true">
+				<div>Tipo Veículo: {{vaga.veiculo.tipoVeiculo}}</div>
+				<div>Nome: {{vaga.veiculo.nomeDono}}</div>
+				<div>Modelo: {{vaga.veiculo.modelo}}</div>
+				<div>Placa: {{vaga.veiculo.placa}}</div>
+			</div>
+
+			<button class="button-edit" mat-raised-button color="primary">Editar</button>
+			<button class="button-checkout" mat-raised-button>Checkout</button>
 		</mat-card>
 	</div>
 </div>

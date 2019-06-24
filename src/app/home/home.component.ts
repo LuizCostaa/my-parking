@@ -10,13 +10,14 @@ import { Vaga } from '../shared/models/vaga.model';
 })
 export class HomeComponent implements OnInit {
 
-	cursos: Vaga[];
-	xablaus: any = [{ xablau: '1'}, {xablau: '2'}, {xablau: '3'}, {xablau: '3'}, {xablau: '3'}, {xablau: '3'}];
+	vagas: Vaga[];
 
 	constructor(private service: MyParkService) { }
 
 	ngOnInit() {
-		this.service.list().subscribe(console.log);
+		this.service.list().subscribe(vagas => {
+			this.vagas = vagas;
+		});
 	}
 
 }

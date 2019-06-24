@@ -1,6 +1,6 @@
-export interface Carro {
+export interface Veiculo {
 	placa: string;
 	modelo: string;
 	nomeDono: string;
-	tipoVeiculo: number;
+	tipoVeiculo: string;
 }

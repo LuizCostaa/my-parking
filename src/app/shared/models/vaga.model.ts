@@ -1,7 +1,7 @@
-import { Carro } from './carro.model';
+import { Veiculo } from './veiculo.model';
 
 export interface Vaga {
 	id: number;
-	numeroVaga: number;
-	veiculo: Carro;
+	estaOcupado: boolean;
+	veiculo: Veiculo;
 }
