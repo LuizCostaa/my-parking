@@ -20,4 +20,12 @@ export class HomeComponent implements OnInit {
 		});
 	}
 
+	showAlert(vaga: Vaga) {
+		alert(`
+			Nome: ${vaga.veiculo.nomeDono}
+			Modelo: ${vaga.veiculo.modelo}
+			Placa: ${vaga.veiculo.placa}
+		`);
+	}
+
 }
