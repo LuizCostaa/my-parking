@@ -1,5 +1,5 @@
 <app-main-nav></app-main-nav>
-<div class="main-div">
+<div *ngIf="vagas$ | async as vagas; else loading" class="main-div">
 	<div *ngFor="let vaga of vagas">
 		<mat-card class="main-card">
 			<mat-card-header>
@@ -15,3 +15,7 @@
 		</mat-card>
 	</div>
 </div>
+
+<ng-template #loading>
+	<span>Carregando Vagas...</span>
+</ng-template>

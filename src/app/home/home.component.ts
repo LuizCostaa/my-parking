@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MyParkService } from '../shared/services/my-park.service';
 import { Vaga } from '../shared/models/vaga.model';
+import { Observable } from 'rxjs';
 
 @Component({
 	selector: 'app-home',
@@ -10,14 +11,15 @@ import { Vaga } from '../shared/models/vaga.model';
 })
 export class HomeComponent implements OnInit {
 
-	vagas: Vaga[];
+	// vagas: Vaga[];
+	vagas$: Observable<Vaga[]>;
 
 	constructor(private service: MyParkService) { }
 
 	ngOnInit() {
-		this.service.list().subscribe(vagas => {
-			this.vagas = vagas;
-		});
+		// this.service.list().subscribe(vagas => this.vagas = vagas );
+
+		this.vagas$ = this.service.list();
 	}
 
 	showAlert(vaga: Vaga) {
