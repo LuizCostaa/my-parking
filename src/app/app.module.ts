@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import { MainNavModule } from './shared/components/main-nav/main-nav.module';
 
 @NgModule({
 	declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 		MatSidenavModule,
 		MatIconModule,
 		MatListModule,
-		HttpClientModule
+		HttpClientModule,
+		MainNavModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

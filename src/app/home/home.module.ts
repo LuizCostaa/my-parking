@@ -17,7 +17,6 @@ import { MainNavModule } from '../shared/components/main-nav/main-nav.module';
 		ReactiveFormsModule,
 		HttpClientModule,
 		HomeRoutingModule,
-		MainNavModule,
 		MatCardModule,
 		MatButtonModule
 	],
