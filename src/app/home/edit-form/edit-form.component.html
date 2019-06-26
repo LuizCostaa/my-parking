@@ -1,0 +1,24 @@
+<div class="main-div">
+	<form [formGroup]="form">
+		<div class="input-container">
+			<mat-form-field>
+				<input maxlength="30" formControlName="nomeDono" matInput placeholder="Nome do dono">
+			</mat-form-field>
+
+			<mat-form-field>
+				<input maxlength="30" formControlName="modelo" matInput placeholder="Modelo">
+			</mat-form-field>
+
+			<mat-form-field>
+				<input maxlength="8" formControlName="placa" matInput placeholder="Placa">
+			</mat-form-field>
+
+			<mat-form-field>
+				<input maxlength="30" formControlName="tipoVeiculo" matInput placeholder="Tipo do Veículo">
+			</mat-form-field>
+
+		</div>
+		<button mat-raised-button color="primary" [disabled]="form.invalid" (click)="save()">Salvar</button>
+		<button mat-raised-button class="button-cancel" (click)="cancel()">Cancelar</button>
+	</form>
+</div>

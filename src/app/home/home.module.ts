@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { MainNavModule } from '../shared/components/main-nav/main-nav.module';
+import { EditFormComponent } from './edit-form/edit-form.component';
+import { MatInputModule } from '@angular/material';
 
 @NgModule({
 
@@ -18,10 +20,13 @@ import { MainNavModule } from '../shared/components/main-nav/main-nav.module';
 		HttpClientModule,
 		HomeRoutingModule,
 		MatCardModule,
-		MatButtonModule
+		MatButtonModule,
+		MatFormFieldModule,
+		MatInputModule
 	],
 	declarations: [
 		HomeComponent,
+		EditFormComponent,
 	],
 	exports: [
 		HomeComponent

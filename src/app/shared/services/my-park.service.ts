@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap, delay } from 'rxjs/operators';
 
 import { Vaga } from '../models/vaga.model';
 
@@ -15,9 +14,7 @@ export class MyParkService {
 	constructor(private http: HttpClient) { }
 
 	public list() {
-		return this.http.get<Vaga[]>(this.apiUrl).pipe(
-			delay(2000)
-		);
+		return this.http.get<Vaga[]>(this.apiUrl);
 	}
 
 }
