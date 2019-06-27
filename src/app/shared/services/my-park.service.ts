@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Vaga } from '../models/vaga.model';
+import { IVaga } from '../models/vaga.model';
 
 @Injectable({
 	providedIn: 'root'
@@ -14,7 +14,11 @@ export class MyParkService {
 	constructor(private http: HttpClient) { }
 
 	public list() {
-		return this.http.get<Vaga[]>(this.apiUrl);
+		return this.http.get<IVaga[]>(this.apiUrl);
+	}
+
+	public update(vaga: IVaga) {
+		return this.http.put<IVaga>(`${this.apiUrl}/${vaga.id}`, vaga);
 	}
 
 }

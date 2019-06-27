@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { IVaga, Vaga } from 'src/app/shared/models/vaga.model';
 import { Veiculo } from 'src/app/shared/models/veiculo.model';
+import { MyParkService } from 'src/app/shared/services/my-park.service';
 
 @Component({
 	selector: 'app-edit-form',
@@ -20,7 +21,8 @@ export class EditFormComponent implements OnInit {
 	constructor(
 		private activatedRoute: ActivatedRoute,
 		private fb: FormBuilder,
-		private router: Router
+		private router: Router,
+		private service: MyParkService
 	) { }
 
 	ngOnInit() {
@@ -67,11 +69,12 @@ export class EditFormComponent implements OnInit {
 	}
 
 	protected save() {
+		this.service.update(this.vaga);
+
 		console.log(this.vaga);
 	}
 
 	protected cancel() {
-		this.form.reset();
 		this.router.navigate(['/home']);
 	}
 
