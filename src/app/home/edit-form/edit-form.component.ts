@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder, AbstractControl, ValidationErrors, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { IVaga, Vaga } from 'src/app/shared/models/vaga.model';
@@ -17,6 +17,7 @@ export class EditFormComponent implements OnInit {
 	form: FormGroup;
 	vaga: IVaga = Vaga.empty();
 	validate = { minLength: 3, maxLength: 30 };
+	permiteCheckout: boolean = false;
 
 	constructor(
 		private activatedRoute: ActivatedRoute,
@@ -27,11 +28,11 @@ export class EditFormComponent implements OnInit {
 
 	ngOnInit() {
 		this.vaga.veiculo = Veiculo.empty();
-		this.getIdFromParam();
 		this.createFormControl();
 
 		this.form.valueChanges.subscribe(
 			() => {
+				this.vaga.id = this.form.controls.id.value;
 				this.vaga.veiculo.nomeDono = this.form.controls.nomeDono.value;
 				this.vaga.veiculo.modelo = this.form.controls.modelo.value;
 				this.vaga.veiculo.placa = this.form.controls.placa.value;
@@ -40,42 +41,78 @@ export class EditFormComponent implements OnInit {
 		);
 	}
 
-	private getIdFromParam() {
-		this.vaga.id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'), 10);
-	}
+	protected createFormControl() {
 
-	private createFormControl() {
+		const vaga = this.activatedRoute.snapshot.data.vaga;
+
+		if (vaga.estaOcupado === true) {
+			this.permiteCheckout = true;
+		} else {
+			this.permiteCheckout = false;
+		}
+
 		this.form = this.fb.group({
-			nomeDono: ['', Validators.compose([
-				Validators.required, Validators.minLength(this.validate.minLength), Validators.maxLength(this.validate.maxLength), this.customIsEmpty
+			id: [vaga.id],
+			nomeDono: [vaga.veiculo.nomeDono, Validators.compose([
+				Validators.required, Validators.minLength(this.validate.minLength), Validators.maxLength(this.validate.maxLength)
 			])],
-			modelo: ['', Validators.compose([
-				Validators.required, Validators.minLength(this.validate.minLength), Validators.maxLength(this.validate.maxLength), this.customIsEmpty
+			modelo: [vaga.veiculo.modelo, Validators.compose([
+				Validators.required, Validators.minLength(this.validate.minLength), Validators.maxLength(this.validate.maxLength)
 			])],
-			placa: ['', Validators.compose([
-				Validators.required, Validators.minLength(1), Validators.maxLength(8), this.customIsEmpty
+			placa: [vaga.veiculo.placa, Validators.compose([
+				Validators.required, Validators.minLength(1), Validators.maxLength(8)
 			])],
-			tipoVeiculo: ['', Validators. compose([
-				Validators.required, Validators.minLength(this.validate.minLength), Validators.maxLength(this.validate.maxLength), this.customIsEmpty
-			])]
+			tipoVeiculo: [vaga.veiculo.tipoVeiculo, Validators.compose([
+				Validators.required, Validators.minLength(this.validate.minLength), Validators.maxLength(this.validate.maxLength)
+			])],
+			tempo: [1]
 		});
 	}
 
-	private customIsEmpty(control: AbstractControl): ValidationErrors {
-		if (control.value.trim().length === 0) {
-			return { isEmpty: true };
-		}
-		return null;
-	}
-
 	protected save() {
-		this.service.update(this.vaga);
-
-		console.log(this.vaga);
+		if (this.vaga.veiculo.nomeDono.length > 1) {
+			this.vaga.estaOcupado = true;
+			this.service.update(this.vaga).subscribe();
+			this.router.navigate(['/home']);
+		} else {
+			this.vaga.estaOcupado = false;
+			this.service.update(this.vaga).subscribe();
+			this.router.navigate(['/home']);
+		}
 	}
 
 	protected cancel() {
 		this.router.navigate(['/home']);
 	}
 
+	protected checkout() {
+
+		if (this.form.controls.tempo.value > 0) {
+			const valorAPagar = this.form.controls.tempo.value * 4;
+
+			alert(`
+			Dono do Veículo: ${this.form.controls.nomeDono.value}
+			Veículo: ${this.form.controls.modelo.value} | ${this.form.controls.placa.value}
+			Valor a Pagar: R$ ${valorAPagar}
+			`);
+
+			this.esvaziaVaga();
+		}
+
+	}
+
+	protected esvaziaVaga() {
+		const vaga: IVaga = Vaga.empty();
+		vaga.veiculo = Veiculo.empty()
+
+		vaga.id = this.form.controls.id.value;
+		vaga.estaOcupado = false;
+		vaga.veiculo.modelo = '';
+		vaga.veiculo.nomeDono = '';
+		vaga.veiculo.placa = '';
+		vaga.veiculo.tipoVeiculo = '';
+
+		this.service.update(vaga).subscribe();
+		this.router.navigate(['/home']);
+	}
 }

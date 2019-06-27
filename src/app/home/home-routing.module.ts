@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
+import { VagaResolverGuard } from './guards/vaga-resolver.guard';
 
 const routes: Routes = [
 	{
@@ -11,7 +12,10 @@ const routes: Routes = [
 	},
 	{
 		path: 'edit/:id',
-		component: EditFormComponent
+		component: EditFormComponent,
+		resolve: {
+			vaga: VagaResolverGuard
+		}
 	}
 ];
 

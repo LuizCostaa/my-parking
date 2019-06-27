@@ -21,5 +21,9 @@ export class MyParkService {
 		return this.http.put<IVaga>(`${this.apiUrl}/${vaga.id}`, vaga);
 	}
 
+	public getById(id: number) {
+		return this.http.get<IVaga>(`${this.apiUrl}/${id}`);
+	}
+
 }
 
