@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IVaga, Vaga } from 'src/app/shared/models/vaga.model';
 import { Veiculo } from 'src/app/shared/models/veiculo.model';
 import { MyParkService } from 'src/app/shared/services/my-park.service';
+import { first } from 'rxjs/operators';
 
 @Component({
 	selector: 'app-edit-form',
@@ -72,12 +73,15 @@ export class EditFormComponent implements OnInit {
 	protected save() {
 		if (this.vaga.veiculo.nomeDono.length > 1) {
 			this.vaga.estaOcupado = true;
-			this.service.update(this.vaga).subscribe();
-			this.router.navigate(['/home']);
+			this.service.update(this.vaga).pipe( first() ).subscribe( () => {
+				this.router.navigate(['/home']);
+			});
+
 		} else {
 			this.vaga.estaOcupado = false;
-			this.service.update(this.vaga).subscribe();
-			this.router.navigate(['/home']);
+			this.service.update(this.vaga).pipe( first() ).subscribe( () => {
+				this.router.navigate(['/home']);
+			});
 		}
 	}
 
