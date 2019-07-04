@@ -1,5 +1,7 @@
 # MyParking
 
+**This project will not be altered or maintained**
+
 My Parking is a simple management system for entry and exit of vehicles.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
