@@ -21,6 +21,4 @@ Copyright (c) Luiz Guilherme Stephanes Costa. All rights reserved.
 Licensed under the [MIT](LICENSE) license.
 
 
-::: warning
 **This project will not be altered or maintained**
-:::
