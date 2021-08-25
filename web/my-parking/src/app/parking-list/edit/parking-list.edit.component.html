@@ -1,0 +1,46 @@
+<po-page-default p-title="Editar Vaga" [p-actions]="editActions">
+
+    <div class="po-row">
+        <div class="po-lg-6 po-offset-lg-3 po-xl-6 po-offset-xl-3">
+
+            <form [formGroup]="form">
+                <div>
+                    <po-input formControlName="nr_vaga" p-disabled="true" p-placeholder="Numero da Vaga"
+                    p-label="Número da Vaga">
+                    </po-input>
+                </div>
+                <div>
+                    <po-input formControlName="nome_proprietario" [p-error-pattern]="errorPattern" p-required="true"
+                        p-placeholder="Nome Proprietario" p-label='Nome do Proprietário' p-clean>
+                    </po-input>
+                </div>
+                <div>
+                    <po-input formControlName="placa" [p-error-pattern]="errorPattern" p-required="true"
+                        p-placeholder="Placa Veiculo" p-label='Placa do Veículo' p-clean>
+                    </po-input>
+                </div>
+                <div>
+                    <po-datepicker formControlName="data_check_in" p-format="string" [p-iso-format]="enumIso"
+                        p-label="Data Check-in" [p-optional]="false" p-placeholder="Data de Check-in"p-required="true">
+                    </po-datepicker>
+                </div>
+                <div>
+                    <po-datepicker formControlName="data_check_out" p-format="string" [p-iso-format]="enumIso"
+                        p-label="Data Check-out" [p-optional]="false" p-placeholder="Data de Check-out"p-required="false">
+                    </po-datepicker>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <po-modal #modalCancel t-close p-size="auto" p-title="Cancelar" [p-primary-action]="backModalAction"
+        [p-secondary-action]="cancelModalAction">
+
+        <div class="po-font-text-large po-text-left">
+            'Tem certeza que deseja cancelar?'
+        </div>
+    </po-modal>
+
+</po-page-default>

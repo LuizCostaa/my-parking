@@ -1,5 +1,6 @@
 <po-page-login
     [p-hide-remember-user]="hideRememberUser"
     [p-languages]="languages"
-
+    (p-login-submit)="onLogin($event)"
+    [p-login-errors]="loginErrors"
 ></po-page-login>

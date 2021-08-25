@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PoModule } from '@po-ui/ng-components';
 import { PoTemplatesModule } from '@po-ui/ng-templates';
+import { ParkingListModule } from './parking-list/parking-list.module';
 
 @NgModule({
     declarations: [
@@ -14,7 +15,8 @@ import { PoTemplatesModule } from '@po-ui/ng-templates';
         BrowserModule,
         AppRoutingModule,
         PoModule,
-        PoTemplatesModule
+        PoTemplatesModule,
+        ParkingListModule
     ],
     providers: [],
     bootstrap: [AppComponent],
